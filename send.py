@@ -9,8 +9,10 @@ time_start = datetime.datetime.now()
 count_id = 0
 
 for x in range(0, 1000):
-    credentials = pika.PlainCredentials(username=cfg.USER, password=cfg.USER)
-    parameters = pika.ConnectionParameters(host=cfg.RABBIT_HOST, port=cfg.PORT, '/', credentials)
+    # credentials = pika.PlainCredentials(username=cfg.USER, password=cfg.USER)
+    # parameters = pika.ConnectionParameters(host=cfg.RABBIT_HOST, port=cfg.PORT, '/', credentials)
+    credentials = pika.PlainCredentials(username='guest', password='guest')
+    parameters = pika.ConnectionParameters("localhost",32783, '/', credentials)
     connection = pika.BlockingConnection(parameters)
     channel = connection.channel()
 

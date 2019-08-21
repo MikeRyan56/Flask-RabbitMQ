@@ -3,7 +3,7 @@ import json
 import config as cfg
 import requests
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host=cfg.RABBIT_HOST))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=cfg.RABBIT_HOST,port=cfg.PORT))
 channel = connection.channel()
 
 channel.queue_declare(queue=cfg.QUEUE_TOPIC)
